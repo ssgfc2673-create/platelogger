@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>번호판 기록 앱 사용자 매뉴얼 (v1.40)</title>
+<style>
+:root{--bg:#fafaf7;--fg:#222;--sub:#666;--card:#fff;--line:#ddd;--in:#2E7D32;--out:#C62828;--tmp:#EF6C00;--acc:#1565C0}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif;line-height:1.7}
+main{max-width:860px;margin:0 auto;padding:16px 16px 60px}
+h1{font-size:1.7em;margin:.3em 0 .1em}
+h2{margin-top:2em;border-bottom:3px solid var(--acc);padding-bottom:4px}
+h3{margin-top:1.4em;color:var(--acc)}
+.sub{color:var(--sub)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+.tip{border-left:5px solid var(--acc)}
+.warn{border-left:5px solid var(--tmp)}
+nav a{display:inline-block;margin:3px 8px 3px 0;color:var(--acc)}
+table{border-collapse:collapse;width:100%;margin:8px 0}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:#eef3fa}
+.b{display:inline-block;padding:1px 9px;border-radius:5px;color:#fff;font-weight:bold;font-size:.92em}
+.bi{background:var(--in)}.bo{background:var(--out)}.bt{background:var(--tmp)}.bg{background:#555}
+kbd{background:#eee;border:1px solid #ccc;border-radius:4px;padding:0 6px}
+ol li,ul li{margin:3px 0}
+</style>
+</head>
+<body><main>
+<h1>번호판 기록 앱 사용자 매뉴얼</h1>
+<div class="sub">PlateLogger v1.40 기준 · 2026-11-05 · 공사장·주차장 차량 입출차 기록용</div>
+
+<nav class="card">
+<a href="#s1">1. 앱 소개</a><a href="#s2">2. 촬영 화면</a><a href="#s3">3. 번호 확인 창</a><a href="#s4">4. 입차·출차 판정</a>
+<a href="#s5">5. 하루 기록</a><a href="#s6">6. 기록 고치기</a><a href="#s7">7. 임시저장 검증</a><a href="#s8">8. 공유·내보내기</a>
+<a href="#s9">9. 설정</a><a href="#s10">10. 검증자료관리</a><a href="#s11">11. 잘 찍는 요령</a><a href="#s12">12. 자주 묻는 것</a>
+</nav>
+
+<h2 id="s1">1. 앱 소개</h2>
+<p>차량 번호판을 찍으면 번호를 읽어 <b>입차·출차 시각</b>을 기록하고, 하루 단위로 <b>방문 차량·입출차 횟수·머문 시간·반출량</b>을 정리해 엑셀·HTML로 보냅니다.</p>
+<ul>
+<li>인식은 <b>폰 안에서</b> 합니다 — 인터넷이 필요 없고, 사진이 밖으로 나가지 않습니다(권한은 카메라 하나).</li>
+<li>덤프트럭의 흙 묻은 판, 노란 영업용 판, 지역명 두 줄 판, 주황 건설기계 판도 읽도록 맞춰져 있습니다.</li>
+<li>같은 차가 반복해서 오는 현장이면 <b>현장 차량 목록</b>으로 뒤 4자리만 읽혀도 번호를 맞춰 줍니다.</li>
+</ul>
+
+<h2 id="s2">2. 촬영 화면 (앱을 열면 첫 화면)</h2>
+<table>
+<tr><th>부분</th><th>하는 일</th></tr>
+<tr><td>카메라 화면 + <b>가운데 십자선</b></td><td>노란 십자선과 빨간 점이 보입니다. <b>빨간 점이 번호판 네모 안에 들어가게</b> 찍으면 번호판을 훨씬 잘 찾습니다(v1.39). 십자선은 사진에 찍히지 않습니다.</td></tr>
+<tr><td>두 손가락 벌리기</td><td>확대(줌). 멀리 있는 번호판을 크게. 두 번 톡 = 원래 크기.</td></tr>
+<tr><td><span class="b bi">입차</span> <span class="b bo">출차</span></td><td>지금 모드. 색이 켜진 쪽이 선택된 것입니다(4장 참고).</td></tr>
+<tr><td><kbd>● 촬영</kbd></td><td>찍고 바로 번호를 읽습니다. 「1단계 번호판 찾는 중 → 2단계 번호 읽는 중…」 뒤 확인 창이 뜹니다.</td></tr>
+<tr><td><kbd>사진첩</kbd></td><td>이미 찍어 둔 사진으로 기록합니다(시각은 기록하는 지금 시각).</td></tr>
+<tr><td><kbd>오늘 기록</kbd></td><td>하루 기록 화면으로(5장).</td></tr>
+</table>
+
+<h2 id="s3">3. 번호 확인 창</h2>
+<p>읽은 번호가 입력칸에 들어가 있고, 아래에 찾은 번호판 후보 그림들이 나옵니다.</p>
+<ul>
+<li><b>후보 그림을 누르면</b> 그 그림에서 읽은 번호가 입력칸에 들어갑니다(파란 테두리 = 선택).</li>
+<li>「현장 차량 목록에서 맞춤: …」이 보이면 목록에 있는 차와 뒤 4자리가 맞아 자동으로 채운 것입니다.</li>
+<li>틀렸으면 입력칸을 직접 고칩니다.</li>
+</ul>
+<table>
+<tr><th>버튼</th><th>뜻</th></tr>
+<tr><td><span class="b bi">확인저장</span></td><td>번호가 맞습니다 → 기록.</td></tr>
+<tr><td><span class="b bt">임시저장</span></td><td>바빠서 지금 확인할 시간이 없을 때. 일단 기록하고 나중에 사진을 보며 고칩니다(7장). 번호를 못 읽어 칸이 비어 있어도 <b>«미인식»</b>으로 기록됩니다. 인식 실패 자료도 <b>자동으로</b> 검증자료에 남습니다.</td></tr>
+<tr><td><kbd>실패데이터저장</kbd></td><td>기록과 별도로, 이 사진을 «인식 실패 자료»로 남깁니다(개발 개선용). 번호를 맞게 고친 뒤 누르면 정답도 같이 남습니다. 창은 닫히지 않습니다.</td></tr>
+<tr><td><kbd>취소(기록 안 함)</kbd></td><td>기록하지 않고 닫습니다.</td></tr>
+</table>
+
+<h2 id="s4">4. 입차·출차 판정</h2>
+<table>
+<tr><th>모드</th><th>찍은 번호가…</th><th>결과</th></tr>
+<tr><td rowspan="2"><span class="b bi">입차</span> (기본)</td><td>오늘 처음 / 이미 나간 차</td><td>새 입차</td></tr>
+<tr><td>오늘 들어와 아직 안 나간 차</td><td>「오늘 입차한 차량입니다」 창 → <kbd>출차로 처리</kbd> · <kbd>다시 입차</kbd> · <kbd>취소</kbd></td></tr>
+<tr><td rowspan="2"><span class="b bo">출차</span></td><td>안 나간 입차 기록이 있음</td><td>그 기록의 출차</td></tr>
+<tr><td>입차 기록 없음</td><td><b>출차만</b> 기록(입차 사진을 놓친 경우) — 합계에서는 출차 건수에 들어갑니다</td></tr>
+</table>
+<div class="card tip">같은 번호를 <b>10초 안에</b> 다시 찍으면 중복으로 보고 건너뜁니다(연속 촬영 방지).</div>
+
+<h2 id="s5">5. 하루 기록 화면</h2>
+<ul>
+<li>위 <kbd>◀</kbd> <kbd>▶</kbd> 로 날짜를 옮깁니다. 위 메뉴: <b>설정</b> · <b>검증자료관리</b>.</li>
+<li>목록 표시: <b>⏳임시</b> = 임시저장한 기록 · <b>⚠</b> = 번호 형식이 아님(확인 필요) · <b>📷</b> = 촬영 사진 있음.</li>
+<li><kbd>⏳ 임시저장만 보기 (n건)</kbd> — 확인이 필요한 것만 모아 봅니다(다시 누르면 전체).</li>
+<li><kbd>↺ 삭제한 기록 복구 (n건)</kbd> — 지운 기록이 있을 때만 보입니다. 삭제는 표시만 하므로 언제든 되살릴 수 있습니다.</li>
+<li>표 위 <b>반출량 표시</b> 체크 — 덤프트럭 반출량 열을 켜고 끕니다.</li>
+</ul>
+
+<h2 id="s6">6. 기록 고치기 (목록의 줄을 누르기)</h2>
+<ul>
+<li>맨 위에 <b>기록 시각</b>(입차 · 출차 · 머문 시간)이 보입니다.</li>
+<li>입차·출차 <b>사진</b>이 창 안에 나옵니다 — 두 손가락 확대, 한 손가락 이동, 두 번 누르면 그 자리 3배 / 다시 두 번 = 원래대로. 번호판을 보며 입력칸을 고칩니다.</li>
+<li>입차만 또는 출차만 있는 기록은 <b>입차 / 출차</b>를 골라 바꿀 수 있습니다(잘못된 모드로 찍었을 때).</li>
+<li><kbd>수정</kbd>(임시 기록은 <kbd>확인 완료</kbd>) · <kbd>삭제</kbd>.</li>
+</ul>
+<div class="card tip"><b>출차로 묶기</b> — 고친 기록이 «입차만» 이고, 그 뒤에 같은 번호의 «입차만» 기록이 또 있으면 「같은 차의 출차일까요?」 창이 두 기록의 시각과 함께 뜹니다. <kbd>출차로 묶기</kbd> 를 누르면 뒤 기록이 앞 기록의 출차로 합쳐집니다(시간 제한 없음). 번호를 못 읽어 입차로 두 번 찍힌 같은 차를 정리할 때 씁니다.</div>
+
+<h2 id="s7">7. 임시저장 검증 (한가할 때)</h2>
+<ol>
+<li>하루 기록 → <kbd>⏳ 임시저장만 보기</kbd>.</li>
+<li>줄을 눌러 사진을 확대해 보고 번호를 고칩니다(«미인식»이면 칸이 비어 있습니다).</li>
+<li>모드가 틀렸으면 입차/출차를 바꿉니다.</li>
+<li><kbd>확인 완료</kbd> → 임시 표시가 없어지고, 그 번호가 인식 실패 자료의 <b>정답</b>으로 자동 기록됩니다(다음 검증자료 보내기에 다시 포함).</li>
+<li>묶을 출차가 있으면 «출차로 묶기» 창이 뜹니다.</li>
+</ol>
+
+<h2 id="s8">8. 공유·내보내기</h2>
+<table>
+<tr><th>버튼</th><th>내용</th></tr>
+<tr><td><kbd>전체 복사</kbd></td><td>그날 기록을 전달용 글(PLATELOG 형식)로 복사.</td></tr>
+<tr><td><kbd>공유</kbd> → 데이터 공유</td><td>같은 글을 메신저 등으로 보냅니다.</td></tr>
+<tr><td><kbd>공유</kbd> → HTML로 공유</td><td>보기 좋은 표 문서.</td></tr>
+<tr><td><kbd>공유</kbd> → 엑셀로 공유</td><td>A4 인쇄용 배치의 엑셀. 설정에서 «엑셀에 검증 데이터 첨부»를 켜면 잘라 낸 번호판 그림이 든 «검증 데이터» 탭이 추가됩니다.</td></tr>
+</table>
+<p><b>요약 숫자 읽는 법</b>(v1.38): 예) 방문 차량 15대 · 입차 14건 · 출차 15건 (출차만 기록 1건 포함) · 주차 중 0건.<br>
+입차·출차는 각각 실제 찍힌 기록 수이고, 짝이 안 맞는 것은 괄호로 따로 알려 줍니다. 차량별 상태에는 «출차(입차 기록 없음)»으로 나옵니다.</p>
+
+<h2 id="s9">9. 설정 (하루 기록 › 위 메뉴 «설정»)</h2>
+<table>
+<tr><th>묶음</th><th>항목</th></tr>
+<tr><td>① 현장·반출량</td><td>현장 이름 · <b>반출량 계산·표시</b>(덤프트럭 현장용, 끄면 주차 관리용) · 1회 적재량·단위</td></tr>
+<tr><td>② 현장 차량 목록</td><td>보관 일수(기본 7일 — 그동안 다시 안 온 차는 빠짐) · <kbd>목록 보기</kbd>(누르면 빼기, 직접 넣기)</td></tr>
+<tr><td>③ 원본 사진</td><td>보관 일수(기본 30일, 0 = 오늘 것만) · 사진 장수·용량 · <kbd>지난 사진 지우기</kbd>. 사진이 지워져도 기록은 남습니다.</td></tr>
+<tr><td>④ 정확도 향상·검증</td><td><b>정확도 향상 데이터 모으기</b>(찍은 사진마다 검증자료 저장) · <b>엑셀에 검증 데이터 첨부</b></td></tr>
+</table>
+
+<h2 id="s10">10. 검증자료관리 (하루 기록 › 위 메뉴)</h2>
+<p>앱의 인식률을 높이려고 모은 사진·번호판 그림·인식 결과입니다. 개발자에게 보낼 때 씁니다.</p>
+<table>
+<tr><th>버튼</th><th>뜻</th></tr>
+<tr><td><kbd>새 자료 zip 으로 보내기</kbd></td><td>아직 안 보낸 세트만 zip(17MB 조각)으로 만들어 텔레그램 등으로 보냅니다.</td></tr>
+<tr><td><kbd>최근 보낸 자료 다시 보내기</kbd></td><td>(v1.40) 보내는 도중 받을 곳을 못 고르고 끝났거나 전송이 실패했을 때, <b>바로 직전에 보낸 묶음</b>을 똑같이 다시 만들어 보냅니다.</td></tr>
+<tr><td><kbd>지우기…</kbd></td><td>모두 지우기(되돌릴 수 없음) · 보낸 표시만 지우기(다음에 전부 다시 보냄).</td></tr>
+</table>
+<div class="card warn">텔레그램은 20MB 넘는 파일을 못 받아서 자동으로 조각을 나눕니다. 조각 여러 개는 한 번에 모두 골라 보내세요.</div>
+
+<h2 id="s11">11. 잘 찍는 요령</h2>
+<ul>
+<li><b>빨간 점을 번호판 안에</b> — 가장 효과가 큽니다.</li>
+<li>번호판이 화면 가로의 1/3 이상 되게 — 멀면 두 손가락으로 확대.</li>
+<li>가능하면 정면에서, 흔들리지 않게. 비스듬해도 앱이 펴서 읽지만 정면이 가장 정확합니다.</li>
+<li>흙이 심하게 묻은 판은 뒤 4자리만이라도 보이게 — 현장 차량 목록이 나머지를 맞춰 줍니다.</li>
+<li>바쁠 때는 <span class="b bt">임시저장</span> 으로 넘기고 나중에 7장 순서로 정리.</li>
+</ul>
+
+<h2 id="s12">12. 자주 묻는 것</h2>
+<div class="card"><b>Q. 「번호판 위치를 못 찾았습니다」가 뜹니다.</b><br>번호판이 작거나 점 밖에 있었던 경우입니다. 확대하고 빨간 점을 번호판 안에 두고 다시 찍으세요. 급하면 임시저장.</div>
+<div class="card"><b>Q. 같은 차가 입차로 두 번 기록됐어요.</b><br>앞 기록을 눌러 번호를 확인하고 «수정» → 「같은 차의 출차일까요?」에서 «출차로 묶기». 또는 뒤 기록을 열어 «출차»로 바꾸세요.</div>
+<div class="card"><b>Q. 기록을 실수로 지웠어요.</b><br>하루 기록 위 «↺ 삭제한 기록 복구».</div>
+<div class="card"><b>Q. 인터넷이 없어도 되나요?</b><br>네. 인식·저장 모두 폰 안에서 합니다. 보내기·공유할 때만 그 앱(메신저)이 인터넷을 씁니다.</div>
+</main></body>
+</html>
