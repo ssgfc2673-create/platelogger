@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>번호판 기록 앱 — 업데이트 소식·요청 반영 현황</title>
+<style>
+body{margin:0;background:#fafaf7;color:#222;font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif;line-height:1.7}
+main{max-width:820px;margin:0 auto;padding:16px 16px 60px}
+h1{font-size:1.5em}h2{margin-top:1.8em;border-bottom:3px solid #1565C0;padding-bottom:3px}
+.card{background:#fff;border:1px solid #ddd;border-radius:10px;padding:12px 16px;margin:12px 0}
+.ask{border-left:5px solid #2E7D32}
+table{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#eef3fa}
+.s{padding:0 7px;border-radius:4px;color:#fff;font-size:.9em;white-space:nowrap}.done{background:#2e9e5b}.doing{background:#e08a1e}.todo{background:#9aa1ab}
+a{color:#1565C0}
+</style>
+</head>
+<body><main>
+<h1>번호판 기록 앱 — 업데이트 소식 · 요청 반영 현황</h1>
+<div class="card ask"><b>의견·변경 요청 보내기</b><br>
+<span id="form">접수 양식을 준비하고 있습니다. 그동안은 앱을 소개해 준 분께 직접 말씀해 주세요.</span><br>
+<small>현장 이름·차량 번호 같은 정보는 꼭 필요한 경우에만 적어 주세요. 이 페이지에는 요청 내용만 요약해서 올리고, 보낸 분의 정보는 올리지 않습니다.</small></div>
+<p><a href="manual.html">사용자 매뉴얼</a> · <a href="index.html">개인정보처리방침</a> · 무료 이용 기간: 2027.05.31까지</p>
+
+<h2>요청 반영 현황</h2>
+<table><thead><tr><th>접수</th><th>요청 내용</th><th>상태</th><th>반영 버전 · 결과</th></tr></thead><tbody>
+<tr><td>11-04</td><td>엑셀·HTML 요약에서 출차만 기록된 차가 출차 건수에 안 들어감</td><td><span class="s done">반영</span></td><td>v1.38 — 입차·출차를 각각 실제 기록 수로 · «출차만 기록 n건 포함» 표시</td></tr>
+<tr><td>11-04</td><td>번호판 위치를 못 찾는 경우가 많음 → 가운데 십자선</td><td><span class="s done">반영</span></td><td>v1.39 — 빨간 점을 번호판 안에 두고 찍으면 그 판을 먼저 찾음</td></tr>
+<tr><td>11-05</td><td>검증자료 보내기가 중간에 끊기면 다시 보낼 방법이 없음</td><td><span class="s done">반영</span></td><td>v1.40 — «최근 보낸 자료 다시 보내기»</td></tr>
+<tr><td>11-05</td><td>사용법 안내가 앱 안에 있었으면</td><td><span class="s done">반영</span></td><td>v1.40 — 메뉴 «사용법» · 이 웹 매뉴얼</td></tr>
+</tbody></table>
+
+<h2>업데이트 소식</h2>
+<div class="card"><b>v1.42</b> (2026-11-05) 하루 기록 메뉴 «의견·요청 / 업데이트 소식» · 사용법에 앱 버전 표시</div>
+<div class="card"><b>v1.41</b> (2026-11-05) 무료 이용 기간 안내(~2027.05.31) · 끝나기 30일 전부터 알림</div>
+<div class="card"><b>v1.40</b> (2026-11-05) 최근 보낸 검증자료 다시 보내기 · 앱 안 사용법</div>
+<div class="card"><b>v1.39</b> (2026-11-04) 촬영 화면 가운데 십자선 · 가운데 점 우선 번호판 찾기</div>
+<div class="card"><b>v1.38</b> (2026-11-04) 엑셀·HTML 요약 입차·출차 건수 바로잡기</div>
+<div class="card"><b>v1.34~1.37</b> (2026-11-04) 임시저장 = 실패 자료 자동 저장 · 고칠 때 입차/출차 바꾸기 · 같은 차 «출차로 묶기» · 기록 시각 표시</div>
+</main></body>
+</html>
